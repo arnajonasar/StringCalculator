@@ -15,3 +15,7 @@ test('string with two number returns the sum', () => {
 test('allow unknown number of arguments', () => {
 	expect(Add("1,2,3,4,5,6,7,8,9")).toBe(45);
 });
+
+test('allow new lines between numbers', () => {
+	expect(Add("1\n2,3")).toBe(6);
+});
