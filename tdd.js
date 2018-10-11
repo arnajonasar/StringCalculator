@@ -5,14 +5,7 @@ function Add(numbers) {
 
 	else {
 		var sum = 0;
-		var delimiters = new RegExp("[\n,]");
-
-		// if the first two characters are / we expect a different delimiter
-		if(numbers[0] == '/' && numbers[1] == '/' && numbers[3] == '\n') {
-			// add the new delimiter to the list of delimiters
-			delimiters = new RegExp("[\n," + numbers[2] + "]");
-		}
-
+		var delimiters = checkForDifferentDelimiters(numbers);
 		var splitNums = numbers.split(delimiters); // regex
 		var negatives = new Array();
 		var errorMessage = "Negatives not allowed: ";
@@ -43,6 +36,16 @@ function Add(numbers) {
 		}
 		return sum;
 	}
+}
+
+function checkForDifferentDelimiters(numbers) {
+	var delimiters = new RegExp("[\n,]");
+	// if the first two characters are / we expect a different delimiter
+	if(numbers[0] == '/' && numbers[1] == '/' && numbers[3] == '\n') {
+		// add the new delimiter to the list of delimiters
+		delimiters = new RegExp("[\n," + numbers[2] + "]");
+	}
+	return delimiters;
 }
 
 module.exports = Add;
