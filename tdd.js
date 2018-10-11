@@ -13,7 +13,9 @@ function Add(numbers) {
 			if(parseInt(splitNums[i]) < 0) {
 				negatives += splitNums[i];
 			}
-			sum += parseInt(splitNums[i]);
+			else if(parseInt(splitNums[i]) <= 1000) {
+				sum += parseInt(splitNums[i]);
+			}
 		}
 		// if there are negative numbers
 		if(negatives.length > 0) {
