@@ -5,7 +5,7 @@ function Add(numbers) {
 
 	else {
 		var sum = 0;
-		var splitNums = numbers.split(",", 2);
+		var splitNums = numbers.split(",");
 
 		for(var i = 0; i < splitNums.length; i++) {
 			sum += parseInt(splitNums[i]);

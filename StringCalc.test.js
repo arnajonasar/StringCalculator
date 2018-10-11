@@ -11,3 +11,7 @@ test('string with one number returns the number', () => {
 test('string with two number returns the sum', () => {
   expect(Add("12,20")).toBe(32);
 });
+
+test('allow unknown number of arguments', () => {
+	expect(Add("1,2,3,4,5,6,7,8,9")).toBe(45);
+});
