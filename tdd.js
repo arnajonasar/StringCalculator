@@ -8,7 +8,6 @@ function Add(numbers) {
 		var delimiters = checkForDifferentDelimiters(numbers);
 		var splitNums = numbers.split(delimiters); // regex
 		var negatives = checkForNegatives(splitNums);
-		var errorMessage = "Negatives not allowed: ";
 
 		for(var i = 0; i < splitNums.length; i++) {
 			// numbers bigger than 1000 are ignored
@@ -16,19 +15,9 @@ function Add(numbers) {
 				sum += parseInt(splitNums[i]);
 			}
 		}
-
 		// if there are negative numbers
 		if(negatives.length > 0) {
-			for(var i = 0; i < negatives.length; i++) {
-				// we don't want comma between - and the number
-				// or if there is only one negative number
-				if(negatives[i] == '-' || negatives.length == 1) { 
-					errorMessage += negatives[i];
-				}
-				else {
-					errorMessage += negatives[i] + ",";
-				}
-			}
+			errorMessage = getErrorMessage(negatives);
 			throw Error(errorMessage);
 		}
 		return sum;
@@ -53,6 +42,21 @@ function checkForNegatives(numbers) {
 		}
 	}
 	return negatives;
+}
+
+function getErrorMessage(negatives) {
+	var errorMessage = "Negatives not allowed: ";
+	for(var i = 0; i < negatives.length; i++) {
+		// we don't want comma between - and the number
+		// or if there is only one negative number
+		if(negatives[i] == '-' || negatives.length == 1) { 
+			errorMessage += negatives[i];
+		}
+		else {
+			errorMessage += negatives[i] + ",";
+		}
+	}
+	return errorMessage;
 }
 
 module.exports = Add;
