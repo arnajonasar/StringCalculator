@@ -7,15 +7,12 @@ function Add(numbers) {
 		var sum = 0;
 		var delimiters = checkForDifferentDelimiters(numbers);
 		var splitNums = numbers.split(delimiters); // regex
-		var negatives = new Array();
+		var negatives = checkForNegatives(splitNums);
 		var errorMessage = "Negatives not allowed: ";
 
 		for(var i = 0; i < splitNums.length; i++) {
-			if(parseInt(splitNums[i]) < 0) {
-				negatives += splitNums[i];
-			}
 			// numbers bigger than 1000 are ignored
-			else if(parseInt(splitNums[i]) <= 1000) {
+			if(parseInt(splitNums[i]) <= 1000) {
 				sum += parseInt(splitNums[i]);
 			}
 		}
@@ -46,6 +43,16 @@ function checkForDifferentDelimiters(numbers) {
 		delimiters = new RegExp("[\n," + numbers[2] + "]");
 	}
 	return delimiters;
+}
+
+function checkForNegatives(numbers) {
+	var negatives = new Array();
+	for(var i = 0; i < numbers.length; i++) {
+		if(parseInt(numbers[i]) < 0) {
+			negatives += numbers[i];
+		}
+	}
+	return negatives;
 }
 
 module.exports = Add;
