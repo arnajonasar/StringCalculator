@@ -20,9 +20,16 @@ test('allow new lines between numbers', () => {
 	expect(Add("1\n2,3")).toBe(6);
 });
 
-test('throw exception when numbers are negative', () => {
+test('throw exception when one number is negative', () => {
 	function negativeNums() {
-		Add("-1,2");
+		Add("2,-3");
 	}
-	expect(negativeNums).toThrow('Negatives not allowed: -1');
+	expect(negativeNums).toThrow('Negatives not allowed: -3');
+});
+
+test('throw exception when multiple numbers are negative', () => {
+	function negativeNums() {
+		Add("2,-3,4,-5,6");
+	}
+	expect(negativeNums).toThrow('Negatives not allowed: -3,-5');
 });
