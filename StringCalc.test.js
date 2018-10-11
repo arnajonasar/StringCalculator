@@ -37,3 +37,7 @@ test('throw exception when multiple numbers are negative', () => {
 test('numbers bigger than 1000 should be ignored', () => {
 	expect(Add("1001,2")).toBe(2);
 });
+
+test('allow a different delimiter', () => {
+	expect(Add("//;\n1;2")).toBe(3);
+})
