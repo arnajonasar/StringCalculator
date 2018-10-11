@@ -19,3 +19,10 @@ test('allow unknown number of arguments', () => {
 test('allow new lines between numbers', () => {
 	expect(Add("1\n2,3")).toBe(6);
 });
+
+test('throw exception when numbers are negative', () => {
+	function negativeNums() {
+		Add("-1,2");
+	}
+	expect(negativeNums).toThrow('Negatives not allowed: -1');
+});

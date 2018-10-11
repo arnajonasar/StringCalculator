@@ -1,0 +1,25 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "description": "tdd",
+  "main": "tdd.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnajonasar/StringCalculator.git"
+  },
+  "keywords": [
+    "tdd"
+  ],
+  "author": "Arna Björg Jónasardóttir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arnajonasar/StringCalculator/issues"
+  },
+  "homepage": "https://github.com/arnajonasar/StringCalculator#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
